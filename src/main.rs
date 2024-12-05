@@ -1,16 +1,11 @@
-use leptos::{server, server_fn::ServerFn, ServerFnError};
-use serde::{Deserialize, Serialize};
-
-pub mod recipe;
-
-//#[cfg(feature = "ssr")]
+#[cfg(feature = "ssr")]
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     use actix_files::Files;
     use actix_web::*;
     use leptos::*;
     use leptos_actix::{generate_route_list, LeptosRoutes};
-    use leptos_server_tutorial::app::*;
+    use toto::app::*;
 
     let conf = get_configuration(None).await.unwrap();
     let addr = conf.leptos_options.site_addr;
@@ -49,6 +44,7 @@ async fn favicon(
         "{site_root}/favicon.ico"
     ))?)
 }
+
 #[cfg(not(any(feature = "ssr", feature = "csr")))]
 pub fn main() {
     // no client-side main function
@@ -62,7 +58,7 @@ pub fn main() {
     // a client-side main function is required for using `trunk serve`
     // prefer using `cargo leptos serve` instead
     // to run: `trunk serve --open --features csr`
-    use leptos_server_tutorial::app::*;
+    use toto::app::*;
 
     console_error_panic_hook::set_once();
 

@@ -1,5 +1,5 @@
 [package]
-name = "leptos-server-tutorial"
+name = "toto"
 version = "0.1.0"
 edition = "2021"
 
@@ -15,14 +15,11 @@ leptos = { version = "0.6", features = ["nightly"] }
 leptos_meta = { version = "0.6", features = ["nightly"] }
 leptos_actix = { version = "0.6", optional = true }
 leptos_router = { version = "0.6", features = ["nightly"] }
-wasm-bindgen = "=0.2.92"
-serde = { version = "1.0.203", features = ["derive"] }
-mustache = "0.9.0"
-leptonic = { git = "https://github.com/lpotthast/leptonic", features = ["nightly"] }
+wasm-bindgen = "0.2.96"
 
 [features]
 csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
-hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate", "leptonic/hydrate"]
+hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
 ssr = [
   "dep:actix-files",
   "dep:actix-web",
@@ -30,7 +27,6 @@ ssr = [
   "leptos/ssr",
   "leptos_meta/ssr",
   "leptos_router/ssr",
-  "leptonic/ssr",
 ]
 
 # Defines a size-optimized profile for the WASM bundle in release mode
@@ -43,7 +39,7 @@ panic = "abort"
 
 [package.metadata.leptos]
 # The name used by wasm-bindgen/cargo-leptos for the JS/WASM bundle. Defaults to the crate name
-output-name = "leptos-server-tutorial"
+output-name = "toto"
 # The site root folder is where cargo-leptos generate all output. WARNING: all content of this folder will be erased on a rebuild. Use it in your server setup.
 site-root = "target/site"
 # The site-root relative folder where all compiled output (JS, WASM and CSS) is written
@@ -93,13 +89,3 @@ lib-default-features = false
 #
 # Optional. Defaults to "release".
 lib-profile-release = "wasm-release"
-
-[package.metadata.leptonic]
-# REQUIRED: Leptonic's build-script will copy the Leptonic themes to this directory. Relative to your project root.
-style-dir = "style"
-
-# REQUIRED: Leptonic's build-script will copy static JS dependencies to this directory. Relative to your project root.
-# Leptonic's `<Root>` component expects JS files to be available at a "js" directory at runtime (for dynamic script includes). Specify a different prop value if you choose a non-stadard location here. 
-js-dir = "public/js"
-
-
