@@ -1,4 +1,5 @@
 pub mod app;
+pub mod pokemon_fight;
 
 #[cfg(feature = "hydrate")]
 #[wasm_bindgen::prelude::wasm_bindgen]

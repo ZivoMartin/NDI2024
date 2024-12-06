@@ -1,3 +1,4 @@
+use super::pokemon_fight::PokemonFight;
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
@@ -21,6 +22,7 @@ pub fn App() -> impl IntoView {
                 <Routes>
                     <Route path="" view=HomePage/>
                     <Route path="/invisible" view=InvisiblePage/>
+                    <Route path="/pokemonfight" view=PokemonFight/>
                     <Route path="/*any" view=NotFound/>
                 </Routes>
             </main>
